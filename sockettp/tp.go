@@ -1,4 +1,4 @@
-package gluasocket_sockettp
+package sockettp
 
 import (
 	"github.com/yuin/gopher-lua"

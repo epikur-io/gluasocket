@@ -1,10 +1,9 @@
-package gluasocket_mimecore
+package mimecore
 
 import (
 	"bytes"
-	"testing"
-
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 // ZGllZ286cGFzc3dvcmQ=

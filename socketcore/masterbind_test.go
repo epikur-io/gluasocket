@@ -1,12 +1,11 @@
-package gluasocket_socketcore_test
+package socketcore_test
 
 import (
 	"fmt"
-	"testing"
-
-	"github.com/nubix-io/gluasocket"
 	"github.com/stretchr/testify/assert"
 	"github.com/yuin/gopher-lua"
+	"gluasocket"
+	"testing"
 )
 
 func TestMasterBind(t *testing.T) {

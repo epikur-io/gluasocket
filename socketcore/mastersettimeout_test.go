@@ -1,11 +1,10 @@
-package gluasocket_socketcore_test
+package socketcore_test
 
 import (
-	"testing"
-
-	"github.com/nubix-io/gluasocket"
 	"github.com/stretchr/testify/assert"
 	"github.com/yuin/gopher-lua"
+	"gluasocket"
+	"testing"
 )
 
 func TestMasterSetTimeout(t *testing.T) {

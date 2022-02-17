@@ -1,10 +1,9 @@
-package gluasocket_mimecore
+package mimecore
 
 import (
-	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/yuin/gopher-lua"
+	"testing"
 )
 
 //-----------------------------------------------------------------------------

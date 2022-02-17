@@ -1,4 +1,4 @@
-package gluasocket_socketexcept
+package socketexcept
 
 import (
 	"github.com/yuin/gopher-lua"

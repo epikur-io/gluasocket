@@ -2,12 +2,11 @@ package gluasocket_test
 
 import (
 	"fmt"
-	"os"
-	"testing"
-
-	"github.com/nubix-io/gluasocket"
 	"github.com/stretchr/testify/assert"
 	"github.com/yuin/gopher-lua"
+	"gluasocket"
+	"os"
+	"testing"
 )
 
 func TestExcept(t *testing.T) {

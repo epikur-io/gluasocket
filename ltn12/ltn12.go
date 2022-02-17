@@ -1,4 +1,4 @@
-package gluasocket_ltn12
+package ltn12
 
 import (
 	"github.com/yuin/gopher-lua"

@@ -1,4 +1,4 @@
-package gluasocket_socketheaders
+package socketheaders
 
 import (
 	"github.com/yuin/gopher-lua"

@@ -1,11 +1,10 @@
-package gluasocket_mimecore
+package mimecore
 
 import (
 	"bytes"
-	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/yuin/gopher-lua"
+	"testing"
 )
 
 func TestQpQuote0(t *testing.T) {
