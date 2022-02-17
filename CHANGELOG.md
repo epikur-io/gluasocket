@@ -1,4 +1,6 @@
-## [Unreleased]
+# Change Log
+
+## [0.2.0] - 2022-02-17
 ### Changed
 - [#1](https://gitlab.com/megalithic-llc/gluasocket/-/issues/1) Use Go modules
 
