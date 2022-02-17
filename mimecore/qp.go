@@ -1,8 +1,7 @@
-package gluasocket_mimecore
+package mimecore
 
 import (
 	"bytes"
-
 	"github.com/yuin/gopher-lua"
 )
 

@@ -1,4 +1,4 @@
-package gluasocket_socketcore
+package socketcore
 
 import (
 	"bytes"

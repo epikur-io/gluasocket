@@ -1,6 +1,7 @@
 # LuaSocket for GopherLua
 
-A native Go implementation of [LuaSocket](https://github.com/diegonehab/luasocket) for the [GopherLua](https://github.com/yuin/gopher-lua) VM.
+A native Go implementation of [LuaSocket](https://github.com/diegonehab/luasocket) for the
+[GopherLua](https://github.com/yuin/gopher-lua) VM.
 
 ## Using
 
@@ -8,7 +9,7 @@ A native Go implementation of [LuaSocket](https://github.com/diegonehab/luasocke
 
 ```go
 import (
-	"github.com/nubix-io/gluasocket"
+	"gitlab.com/megalithic-llc/gluasocket"
 )
 
 // Bring up a GopherLua VM
@@ -43,20 +44,20 @@ gettimeValue := float64(L.ToNumber(-1))
 ## Testing
 
 ```bash
-$ go test github.com/nubix-io/gluasocket...
-ok  	github.com/nubix-io/gluasocket	0.045s
-?   	github.com/nubix-io/gluasocket/ltn12	[no test files]
-?   	github.com/nubix-io/gluasocket/mime	[no test files]
-ok  	github.com/nubix-io/gluasocket/mimecore	0.040s
-?   	github.com/nubix-io/gluasocket/socket	[no test files]
-ok  	github.com/nubix-io/gluasocket/socketcore	0.269s
-?   	github.com/nubix-io/gluasocket/socketexcept	[no test files]
-?   	github.com/nubix-io/gluasocket/socketftp	[no test files]
-?   	github.com/nubix-io/gluasocket/socketheaders	[no test files]
-?   	github.com/nubix-io/gluasocket/sockethttp	[no test files]
-?   	github.com/nubix-io/gluasocket/socketsmtp	[no test files]
-?   	github.com/nubix-io/gluasocket/sockettp	[no test files]
-?   	github.com/nubix-io/gluasocket/socketurl	[no test files]
+$ go test ./...
+ok  	gluasocket	0.246s
+?   	gluasocket/ltn12	[no test files]
+?   	gluasocket/mime	[no test files]
+ok  	gluasocket/mimecore	0.415s
+?   	gluasocket/socket	[no test files]
+ok  	gluasocket/socketcore	0.547s
+?   	gluasocket/socketexcept	[no test files]
+?   	gluasocket/socketftp	[no test files]
+?   	gluasocket/socketheaders	[no test files]
+ok  	gluasocket/sockethttp	0.169s
+?   	gluasocket/socketsmtp	[no test files]
+?   	gluasocket/sockettp	[no test files]
+?   	gluasocket/socketurl	[no test files]
 ```
 
 Some original Lua-based LuaSocket unit tests are used and wrapped in Go unit test functions. Tests that perform `os.exit()` are modified to perform `error()` instead so that errors are made detectable.

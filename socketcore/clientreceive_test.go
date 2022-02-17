@@ -1,14 +1,13 @@
-package gluasocket_socketcore_test
+package socketcore_test
 
 import (
 	"fmt"
+	"github.com/stretchr/testify/assert"
+	"github.com/yuin/gopher-lua"
+	"gluasocket"
 	"net"
 	"testing"
 	"time"
-
-	"github.com/nubix-io/gluasocket"
-	"github.com/stretchr/testify/assert"
-	"github.com/yuin/gopher-lua"
 )
 
 func TestClientReceiveLines(t *testing.T) {

@@ -1,4 +1,4 @@
-package gluasocket_sockethttp
+package sockethttp
 
 import (
 	"io/ioutil"

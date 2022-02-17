@@ -1,14 +1,13 @@
-package gluasocket_sockethttp_test
+package sockethttp_test
 
 import (
 	"fmt"
+	"github.com/stretchr/testify/assert"
+	"github.com/yuin/gopher-lua"
+	"gluasocket/sockethttp"
 	"net"
 	"net/http"
 	"testing"
-
-	"github.com/nubix-io/gluasocket/sockethttp"
-	"github.com/stretchr/testify/assert"
-	"github.com/yuin/gopher-lua"
 )
 
 func TestWebHdfsUrlScheme(t *testing.T) {
@@ -25,7 +24,7 @@ func TestWebHdfsUrlScheme(t *testing.T) {
 	}()
 
 	// Make a webdav request
-	L.PreloadModule("socket.http", gluasocket_sockethttp.Loader)
+	L.PreloadModule("socket.http", sockethttp.Loader)
 	url := fmt.Sprintf("webhdfs://localhost:%d", port)
 	assert.NoError(L.DoString(fmt.Sprintf(`require 'socket.http'.request('%s')`, url)))
 }

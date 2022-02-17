@@ -1,4 +1,4 @@
-package gluasocket_mimecore
+package mimecore
 
 import (
 	"bytes"

@@ -1,12 +1,11 @@
-package gluasocket_socketcore_test
+package socketcore_test
 
 import (
-	"os"
-	"testing"
-
-	"github.com/nubix-io/gluasocket/socketcore"
 	"github.com/stretchr/testify/assert"
 	"github.com/yuin/gopher-lua"
+	"gluasocket/socketcore"
+	"os"
+	"testing"
 )
 
 func TestDnsGetHostName(t *testing.T) {
@@ -14,7 +13,7 @@ func TestDnsGetHostName(t *testing.T) {
 	L := lua.NewState()
 	defer L.Close()
 
-	L.PreloadModule("socket.core", gluasocket_socketcore.Loader)
+	L.PreloadModule("socket.core", socketcore.Loader)
 
 	expected, err := os.Hostname()
 	assert.NoError(err)

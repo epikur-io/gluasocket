@@ -1,18 +1,17 @@
-package gluasocket_mimecore_test
+package mimecore_test
 
 import (
-	"testing"
-
-	"github.com/nubix-io/gluasocket/mimecore"
 	"github.com/stretchr/testify/assert"
 	"github.com/yuin/gopher-lua"
+	"gluasocket/mimecore"
+	"testing"
 )
 
 func TestEolDos(t *testing.T) {
 	assert := assert.New(t)
 	L := lua.NewState()
 	defer L.Close()
-	L.PreloadModule("mime.core", gluasocket_mimecore.Loader)
+	L.PreloadModule("mime.core", mimecore.Loader)
 	assert.NoError(L.DoString(`return require 'mime.core'.eol(0, 'abc\r\n123', '\n')`))
 	A := L.Get(-2)
 	B := L.Get(-1)
