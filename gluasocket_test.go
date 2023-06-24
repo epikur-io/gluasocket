@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/stretchr/testify/assert"
 	"github.com/yuin/gopher-lua"
-	"gluasocket"
+	"gitlab.com/megalithic-llc/gluasocket"
 	"os"
 	"testing"
 )

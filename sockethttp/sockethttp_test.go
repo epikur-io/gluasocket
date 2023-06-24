@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/stretchr/testify/assert"
 	"github.com/yuin/gopher-lua"
-	"gluasocket/sockethttp"
+	"gitlab.com/megalithic-llc/gluasocket/sockethttp"
 	"net"
 	"net/http"
 	"testing"

@@ -3,7 +3,7 @@ package mimecore_test
 import (
 	"github.com/stretchr/testify/assert"
 	"github.com/yuin/gopher-lua"
-	"gluasocket/mimecore"
+	"gitlab.com/megalithic-llc/gluasocket/mimecore"
 	"testing"
 )
 
