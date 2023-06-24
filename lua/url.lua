@@ -1,20 +1,4 @@
-package socketurl
-
-import (
-	"github.com/yuin/gopher-lua"
-)
-
-// ----------------------------------------------------------------------------
-
-func Loader(l *lua.LState) int {
-	if err := l.DoString(urlDotLua); err != nil {
-		l.RaiseError("Error loading url.lua: %v", err)
-		return 0
-	}
-	return 1
-}
-
-const urlDotLua = `-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 -- URI parsing, composition and relative URL resolution
 -- LuaSocket toolkit.
 -- Author: Diego Nehab
@@ -149,7 +133,7 @@ function _M.parse(url, default)
     -- url = string.gsub(url, "%s", "")
     -- get scheme
     url = string.gsub(url, "^([%w][%w%+%-%.]*)%:",
-        function(s) parsed.scheme = s; return "" end)
+            function(s) parsed.scheme = s; return "" end)
     -- get authority
     url = string.gsub(url, "^//([^/]*)", function(n)
         parsed.authority = n
@@ -175,17 +159,17 @@ function _M.parse(url, default)
     local authority = parsed.authority
     if not authority then return parsed end
     authority = string.gsub(authority,"^([^@]*)@",
-        function(u) parsed.userinfo = u; return "" end)
+            function(u) parsed.userinfo = u; return "" end)
     authority = string.gsub(authority, ":([^:%]]*)$",
-        function(p) parsed.port = p; return "" end)
-    if authority ~= "" then 
+            function(p) parsed.port = p; return "" end)
+    if authority ~= "" then
         -- IPv6?
-        parsed.host = string.match(authority, "^%[(.+)%]$") or authority 
+        parsed.host = string.match(authority, "^%[(.+)%]$") or authority
     end
     local userinfo = parsed.userinfo
     if not userinfo then return parsed end
     userinfo = string.gsub(userinfo, ":([^:]*)$",
-        function(p) parsed.password = p; return "" end)
+            function(p) parsed.password = p; return "" end)
     parsed.user = userinfo
     return parsed
 end
@@ -259,9 +243,9 @@ function _M.absolute(base_url, relative_url)
                         relative_parsed.query = base_parsed.query
                     end
                 end
-            else    
+            else
                 relative_parsed.path = absolute_path(base_parsed.path or "",
-                    relative_parsed.path)
+                        relative_parsed.path)
             end
         end
         return _M.build(relative_parsed)
@@ -323,4 +307,3 @@ function _M.build_path(parsed, unsafe)
 end
 
 return _M
-`

@@ -1,20 +1,4 @@
-package socket
-
-import (
-	"github.com/yuin/gopher-lua"
-)
-
-// ----------------------------------------------------------------------------
-
-func Loader(l *lua.LState) int {
-	if err := l.DoString(socketDotLua); err != nil {
-		l.RaiseError("Error loading socket.lua: %v", err)
-		return 0
-	}
-	return 1
-}
-
-const socketDotLua = `-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 -- LuaSocket helper module
 -- Author: Diego Nehab
 -----------------------------------------------------------------------------
@@ -166,4 +150,3 @@ sourcet["default"] = sourcet["until-closed"]
 _M.source = _M.choose(sourcet)
 
 return _M
-`

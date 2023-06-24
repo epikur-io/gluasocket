@@ -1,20 +1,4 @@
-package socketftp
-
-import (
-	"github.com/yuin/gopher-lua"
-)
-
-// ----------------------------------------------------------------------------
-
-func Loader(l *lua.LState) int {
-	if err := l.DoString(ftpDotLua); err != nil {
-		l.RaiseError("Error loading ftp.lua: %v", err)
-		return 0
-	}
-	return 1
-}
-
-const ftpDotLua = `-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 -- FTP support for the Lua language
 -- LuaSocket toolkit.
 -- Author: Diego Nehab
@@ -153,7 +137,7 @@ function metat.__index:send(sendt)
     if self.pasvt then self:pasvconnect() end
     -- get the transfer argument and command
     local argument = sendt.argument or
-        url.unescape(string.gsub(sendt.path or "", "^[/\\]", ""))
+            url.unescape(string.gsub(sendt.path or "", "^[/\\]", ""))
     if argument == "" then argument = nil end
     local command = sendt.command or "stor"
     -- send the transfer command and check the reply
@@ -187,7 +171,7 @@ function metat.__index:receive(recvt)
     self.try(self.pasvt or self.server, "need port or pasv first")
     if self.pasvt then self:pasvconnect() end
     local argument = recvt.argument or
-        url.unescape(string.gsub(recvt.path or "", "^[/\\]", ""))
+            url.unescape(string.gsub(recvt.path or "", "^[/\\]", ""))
     if argument == "" then argument = nil end
     local command = recvt.command or "retr"
     self.try(self.tp:command(command, argument))
@@ -276,7 +260,7 @@ local function genericform(u)
     if t.params then
         t.type = socket.skip(2, string.find(t.params, pat))
         socket.try(t.type == "a" or t.type == "i",
-            "invalid type '" .. t.type .. "'")
+                "invalid type '" .. t.type .. "'")
     end
     return t
 end
@@ -343,4 +327,3 @@ _M.get = socket.protect(function(gett)
 end)
 
 return _M
-`

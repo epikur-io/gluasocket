@@ -1,20 +1,4 @@
-package sockettp
-
-import (
-	"github.com/yuin/gopher-lua"
-)
-
-// ----------------------------------------------------------------------------
-
-func Loader(l *lua.LState) int {
-	if err := l.DoString(tpDotLua); err != nil {
-		l.RaiseError("Error loading tp.lua: %v", err)
-		return 0
-	}
-	return 1
-}
-
-const tpDotLua = `-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 -- Unified SMTP/FTP subsystem
 -- LuaSocket toolkit.
 -- Author: Diego Nehab
@@ -53,7 +37,7 @@ local function get_reply(c)
             if err then return nil, err end
             current, sep = socket.skip(2, string.find(line, "^(%d%d%d)(.?)"))
             reply = reply .. "\n" .. line
-        -- reply ends with same code
+            -- reply ends with same code
         until code == current and sep == " "
     end
     return code, reply
@@ -148,4 +132,3 @@ function _M.connect(host, port, timeout, create)
 end
 
 return _M
-`
