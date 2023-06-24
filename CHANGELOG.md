@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [0.3.0] - 2023-06-24
 ### Changed
 - [#4](https://gitlab.com/megalithic-llc/gluasocket/-/issues/4) Use go:embed to import Lua scripts
 - [#2](https://gitlab.com/megalithic-llc/gluasocket/-/issues/2) Upgrade to GopherLua v0.2.1
