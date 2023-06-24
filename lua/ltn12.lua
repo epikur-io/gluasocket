@@ -1,20 +1,4 @@
-package ltn12
-
-import (
-	"github.com/yuin/gopher-lua"
-)
-
-// ----------------------------------------------------------------------------
-
-func Loader(l *lua.LState) int {
-	if err := l.DoString(ltn12DotLua); err != nil {
-		l.RaiseError("Error loading ltn12.lua: %v", err)
-		return 0
-	}
-	return 1
-}
-
-const ltn12DotLua = `-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 -- LTN12 - Filters, sources, sinks and pumps.
 -- LuaSocket toolkit.
 -- Author: Diego Nehab
@@ -323,4 +307,3 @@ function pump.all(src, snk, step)
 end
 
 return _M
-`
