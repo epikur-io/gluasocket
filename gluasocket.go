@@ -2,18 +2,18 @@ package gluasocket
 
 import (
 	"github.com/yuin/gopher-lua"
-	"gluasocket/ltn12"
-	"gluasocket/mime"
-	"gluasocket/mimecore"
-	"gluasocket/socket"
-	"gluasocket/socketcore"
-	"gluasocket/socketexcept"
-	"gluasocket/socketftp"
-	"gluasocket/socketheaders"
-	"gluasocket/sockethttp"
-	"gluasocket/socketsmtp"
-	"gluasocket/sockettp"
-	"gluasocket/socketurl"
+	"gitlab.com/megalithic-llc/gluasocket/ltn12"
+	"gitlab.com/megalithic-llc/gluasocket/mime"
+	"gitlab.com/megalithic-llc/gluasocket/mimecore"
+	"gitlab.com/megalithic-llc/gluasocket/socket"
+	"gitlab.com/megalithic-llc/gluasocket/socketcore"
+	"gitlab.com/megalithic-llc/gluasocket/socketexcept"
+	"gitlab.com/megalithic-llc/gluasocket/socketftp"
+	"gitlab.com/megalithic-llc/gluasocket/socketheaders"
+	"gitlab.com/megalithic-llc/gluasocket/sockethttp"
+	"gitlab.com/megalithic-llc/gluasocket/socketsmtp"
+	"gitlab.com/megalithic-llc/gluasocket/sockettp"
+	"gitlab.com/megalithic-llc/gluasocket/socketurl"
 )
 
 func Preload(L *lua.LState) {

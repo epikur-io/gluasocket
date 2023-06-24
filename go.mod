@@ -1,4 +1,4 @@
-module gluasocket
+module gitlab.com/megalithic-llc/gluasocket
 
 go 1.17
 

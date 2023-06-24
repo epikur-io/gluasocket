@@ -3,7 +3,7 @@ package socketcore_test
 import (
 	"github.com/stretchr/testify/assert"
 	"github.com/yuin/gopher-lua"
-	"gluasocket/socketcore"
+	"gitlab.com/megalithic-llc/gluasocket/socketcore"
 	"testing"
 	"time"
 )
