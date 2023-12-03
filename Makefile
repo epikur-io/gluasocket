@@ -10,6 +10,10 @@ clean:
 	go clean -i ./...
 	go clean -testcache
 
+.PHONY: tidy
+tidy:
+	go mod tidy
+
 .PHONY: outdated
 outdated:
 	go install github.com/psampaz/go-mod-outdated@latest
