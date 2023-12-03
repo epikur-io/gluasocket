@@ -18,14 +18,14 @@ var (
 	qpclass, qpunbase [256]byte
 )
 
-/*-------------------------------------------------------------------------*\
-* Incrementally converts a string to quoted-printable
-* A, B = qp(C, D, marker)
-* Marker is the text to be used to replace CRLF sequences found in A.
-* A is the encoded version of the largest prefix of C .. D that
-* can be encoded without doubts.
-* B has the remaining bytes of C .. D, *without* encoding.
-\*-------------------------------------------------------------------------*/
+// -------------------------------------------------------------------------
+// Incrementally converts a string to quoted-printable
+// A, B = qp(C, D, marker)
+// Marker is the text to be used to replace CRLF sequences found in A.
+// A is the encoded version of the largest prefix of C .. D that
+// can be encoded without doubts.
+// B has the remaining bytes of C .. D, *without* encoding.
+// -------------------------------------------------------------------------
 func qpFn(l *lua.LState) int {
 	var atom bytes.Buffer
 
@@ -72,10 +72,10 @@ func qpFn(l *lua.LState) int {
 	return 2
 }
 
-/*-------------------------------------------------------------------------*\
-* Split quoted-printable characters into classes
-* Precompute reverse map for encoding
-\*-------------------------------------------------------------------------*/
+// -------------------------------------------------------------------------
+// Split quoted-printable characters into classes
+// Precompute reverse map for encoding
+// -------------------------------------------------------------------------
 func qpsetup() {
 	for i := 0; i < 256; i++ {
 		qpclass[i] = QP_QUOTED
@@ -118,10 +118,10 @@ func qpsetup() {
 	qpunbase['f'] = 15
 }
 
-/*-------------------------------------------------------------------------*\
-* Accumulate characters until we are sure about how to deal with them.
-* Once we are sure, output to the buffer, in the correct form.
-\*-------------------------------------------------------------------------*/
+// -------------------------------------------------------------------------
+// Accumulate characters until we are sure about how to deal with them.
+// Once we are sure, output to the buffer, in the correct form.
+// -------------------------------------------------------------------------
 func qpencode(c byte, input *bytes.Buffer, marker string, buffer *bytes.Buffer) {
 	input.WriteByte(c)
 
@@ -144,7 +144,6 @@ func qpencode(c byte, input *bytes.Buffer, marker string, buffer *bytes.Buffer) 
 			} else {
 				qpquote(inputBytes[0], buffer)
 			}
-			break
 			// might be a space and that has to be quoted if last in line
 		case QP_IF_LAST:
 			if len(inputBytes) < 3 {
@@ -159,23 +158,20 @@ func qpencode(c byte, input *bytes.Buffer, marker string, buffer *bytes.Buffer) 
 			} else {
 				buffer.WriteByte(inputBytes[0])
 			}
-			break
 			// might have to be quoted always
 		case QP_QUOTED:
 			qpquote(inputBytes[0], buffer)
-			break
 			// might never have to be quoted
 		default:
 			buffer.WriteByte(inputBytes[0])
-			break
 		}
 		input.Next(1)
 	}
 }
 
-/*-------------------------------------------------------------------------*\
-* Deal with the final characters
-\*-------------------------------------------------------------------------*/
+// -------------------------------------------------------------------------
+// Deal with the final characters
+// -------------------------------------------------------------------------
 func qppad(input bytes.Buffer, buffer *bytes.Buffer) int {
 	for _, c := range input.Bytes() {
 		if qpclass[c] == QP_PLAIN {
@@ -190,9 +186,9 @@ func qppad(input bytes.Buffer, buffer *bytes.Buffer) int {
 	return 0
 }
 
-/*-------------------------------------------------------------------------*\
-* Output one character in form =XX
-\*-------------------------------------------------------------------------*/
+// -------------------------------------------------------------------------
+// Output one character in form =XX
+// -------------------------------------------------------------------------
 func qpquote(c byte, buffer *bytes.Buffer) {
 	buffer.WriteRune('=')
 	buffer.WriteByte(qpbase[c>>4])
