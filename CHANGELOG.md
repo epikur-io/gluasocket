@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 ### Added
+- [#6](https://gitlab.com/megalithic-llc/gluasocket/-/issues/6) Run tests in the GitLab CI env
 - [#5](https://gitlab.com/megalithic-llc/gluasocket/-/issues/5) Provide an 'outdated' make target
 
 ## [0.3.0] - 2023-06-24
