@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 ### Added
+- [#7](https://gitlab.com/megalithic-llc/gluasocket/-/issues/7) Enable staticcheck linter, and address 16 failing lint checks
 - [#6](https://gitlab.com/megalithic-llc/gluasocket/-/issues/6) Run tests in the GitLab CI env
 - [#5](https://gitlab.com/megalithic-llc/gluasocket/-/issues/5) Provide an 'outdated' make target
 

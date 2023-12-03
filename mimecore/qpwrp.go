@@ -5,15 +5,15 @@ import (
 	"github.com/yuin/gopher-lua"
 )
 
-/*-------------------------------------------------------------------------*\
-* Incrementally breaks a quoted-printed string into lines
-* A, n = qpwrp(l, B, length)
-* A is a copy of B, broken into lines of at most 'length' bytes.
-* 'l' is how many bytes are left for the first line of B.
-* 'n' is the number of bytes left in the last line of A.
-* There are two complications: lines can't be broken in the middle
-* of an encoded =XX, and there might be line breaks already
-\*-------------------------------------------------------------------------*/
+// -------------------------------------------------------------------------
+// Incrementally breaks a quoted-printed string into lines
+// A, n = qpwrp(l, B, length)
+// A is a copy of B, broken into lines of at most 'length' bytes.
+// 'l' is how many bytes are left for the first line of B.
+// 'n' is the number of bytes left in the last line of A.
+// There are two complications: lines can't be broken in the middle
+// of an encoded =XX, and there might be line breaks already
+// -------------------------------------------------------------------------
 func qpwrpFn(L *lua.LState) int {
 	left := L.ToNumber(1)
 
@@ -48,11 +48,9 @@ func qpwrpFn(L *lua.LState) int {
 	for _, c := range input {
 		switch c {
 		case '\r':
-			break
 		case '\n':
 			left = length
 			buffer.WriteString("\r\n")
-			break
 		case '=':
 			if left <= 3 {
 				left = length
@@ -60,7 +58,6 @@ func qpwrpFn(L *lua.LState) int {
 			}
 			buffer.WriteRune(c)
 			left--
-			break
 		default:
 			if left <= 1 {
 				left = length
@@ -68,7 +65,6 @@ func qpwrpFn(L *lua.LState) int {
 			}
 			buffer.WriteRune(c)
 			left--
-			break
 		}
 	}
 

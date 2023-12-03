@@ -15,8 +15,10 @@ mr-static-checks:
   image: golang:1.19
   before_script:
     - go install github.com/onsi/ginkgo/v2/ginkgo@$GINKGO_VERSION
+    - go install honnef.co/go/tools/cmd/staticcheck@latest
   script:
     - go vet ./...
+    - staticcheck ./...
 
 mr-test:
   stage: build+test

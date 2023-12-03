@@ -39,7 +39,7 @@ func clientReceiveMethod(L *lua.LState) int {
 			}
 			buf.WriteByte(byte)
 		}
-		L.Push(lua.LString(string(buf.Bytes())))
+		L.Push(lua.LString(buf.String()))
 		return 1
 	}
 
@@ -68,7 +68,7 @@ func clientReceiveMethod(L *lua.LState) int {
 				break
 			}
 		}
-		L.Push(lua.LString(string(buf.Bytes())))
+		L.Push(lua.LString(buf.String()))
 		return 1
 	}
 
@@ -96,7 +96,7 @@ func clientReceiveMethod(L *lua.LState) int {
 			}
 			buf.WriteByte(byte)
 		}
-		L.Push(lua.LString(string(buf.Bytes())))
+		L.Push(lua.LString(buf.String()))
 		return 1
 	}
 

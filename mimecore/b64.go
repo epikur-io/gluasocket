@@ -10,9 +10,9 @@ var (
 	b64unbase [256]byte
 )
 
-/*-------------------------------------------------------------------------*\
-* Fill base64 decode map.
-\*-------------------------------------------------------------------------*/
+// -------------------------------------------------------------------------
+// Fill base64 decode map.
+// -------------------------------------------------------------------------
 func b64setup() {
 	for i := 0; i <= 255; i++ {
 		b64unbase[i] = 255
@@ -23,15 +23,15 @@ func b64setup() {
 	b64unbase['='] = 0
 }
 
-/*-------------------------------------------------------------------------*\
-* Incrementally applies the Base64 transfer content encoding to a string
-* A, B = b64(C, D)
-* A is the encoded version of the largest prefix of C .. D that is
-* divisible by 3. B has the remaining bytes of C .. D, *without* encoding.
-* The easiest thing would be to concatenate the two strings and
-* encode the result, but we can't afford that or Lua would dupplicate
-* every chunk we received.
-\*-------------------------------------------------------------------------*/
+// -------------------------------------------------------------------------
+// Incrementally applies the Base64 transfer content encoding to a string
+// A, B = b64(C, D)
+// A is the encoded version of the largest prefix of C .. D that is
+// divisible by 3. B has the remaining bytes of C .. D, *without* encoding.
+// The easiest thing would be to concatenate the two strings and
+// encode the result, but we can't afford that or Lua would dupplicate
+// every chunk we received.
+// -------------------------------------------------------------------------
 func b64Fn(L *lua.LState) int {
 	var atom bytes.Buffer
 
@@ -72,11 +72,11 @@ func b64Fn(L *lua.LState) int {
 	return 2
 }
 
-/*-------------------------------------------------------------------------*\
-* Acumulates bytes in input buffer until 3 bytes are available.
-* Translate the 3 bytes into Base64 form and append to buffer.
-* Returns new number of bytes in buffer.
-\*-------------------------------------------------------------------------*/
+// -------------------------------------------------------------------------
+// Acumulates bytes in input buffer until 3 bytes are available.
+// Translate the 3 bytes into Base64 form and append to buffer.
+// Returns new number of bytes in buffer.
+// -------------------------------------------------------------------------
 func b64encode(c byte, input *bytes.Buffer, buffer *bytes.Buffer) {
 	input.WriteByte(c)
 	if input.Len() == 3 {
@@ -103,11 +103,11 @@ func b64encode(c byte, input *bytes.Buffer, buffer *bytes.Buffer) {
 	}
 }
 
-/*-------------------------------------------------------------------------*\
-* Encodes the Base64 last 1 or 2 bytes and adds padding '='
-* Result, if any, is appended to buffer.
-* Returns 0.
-\*-------------------------------------------------------------------------*/
+// -------------------------------------------------------------------------
+// Encodes the Base64 last 1 or 2 bytes and adds padding '='
+// Result, if any, is appended to buffer.
+// Returns 0.
+// -------------------------------------------------------------------------
 func b64pad(input bytes.Buffer, buffer *bytes.Buffer) {
 	var value uint64
 	code := []byte("====")
@@ -120,7 +120,6 @@ func b64pad(input bytes.Buffer, buffer *bytes.Buffer) {
 		code[0] = b64base[value]
 
 		buffer.WriteString(string(code))
-		break
 	case 2:
 		value = uint64(input.Next(1)[0]) << 8
 		value |= uint64(input.Next(1)[0])
@@ -134,7 +133,6 @@ func b64pad(input bytes.Buffer, buffer *bytes.Buffer) {
 		code[0] = b64base[value]
 
 		buffer.WriteString(string(code))
-		break
 	default:
 		break
 	}
