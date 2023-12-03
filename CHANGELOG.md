@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [0.3.1] - 2023-12-03
 ### Added
 - [#7](https://gitlab.com/megalithic-llc/gluasocket/-/issues/7) Enable staticcheck linter, and address 16 failing lint checks
 - [#6](https://gitlab.com/megalithic-llc/gluasocket/-/issues/6) Run tests in the GitLab CI env
