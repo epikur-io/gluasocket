@@ -6,6 +6,9 @@
 - [#6](https://gitlab.com/megalithic-llc/gluasocket/-/issues/6) Run tests in the GitLab CI env
 - [#5](https://gitlab.com/megalithic-llc/gluasocket/-/issues/5) Provide an 'outdated' make target
 
+### Changed
+- [#9](https://gitlab.com/megalithic-llc/gluasocket/-/issues/9) Upgrade Go from 1.17 → 1.21
+
 ## [0.3.0] - 2023-06-24
 ### Changed
 - [#4](https://gitlab.com/megalithic-llc/gluasocket/-/issues/4) Use go:embed to import Lua scripts

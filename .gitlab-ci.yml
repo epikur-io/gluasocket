@@ -1,5 +1,6 @@
 variables:
   GINKGO_VERSION: v2.13.0
+  GO_VERSION: "1.21"
 
 services:
   - docker:dind
@@ -12,7 +13,7 @@ mr-static-checks:
   stage: build+test
   only:
     - merge_requests
-  image: golang:1.19
+  image: golang:$GO_VERSION
   before_script:
     - go install github.com/onsi/ginkgo/v2/ginkgo@$GINKGO_VERSION
     - go install honnef.co/go/tools/cmd/staticcheck@latest
@@ -25,9 +26,7 @@ mr-test:
   only:
     - main
     - merge_requests
-  image: golang:1.19
-  services:
-    - redis:7.0.5
+  image: golang:$GO_VERSION
   before_script:
     - go install github.com/onsi/ginkgo/v2/ginkgo@$GINKGO_VERSION
     - go install github.com/boumenot/gocover-cobertura@v1.2.0
