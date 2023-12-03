@@ -8,6 +8,7 @@
 
 ### Changed
 - [#9](https://gitlab.com/megalithic-llc/gluasocket/-/issues/9) Upgrade Go from 1.17 → 1.21
+- [#8](https://gitlab.com/megalithic-llc/gluasocket/-/issues/8) Upgrade 2 packages
 
 ## [0.3.0] - 2023-06-24
 ### Changed
