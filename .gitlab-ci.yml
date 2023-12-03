@@ -1,0 +1,41 @@
+variables:
+  GINKGO_VERSION: v2.13.0
+
+services:
+  - docker:dind
+
+stages:
+  - build+test
+  - package+publish
+
+mr-static-checks:
+  stage: build+test
+  only:
+    - merge_requests
+  image: golang:1.19
+  before_script:
+    - go install github.com/onsi/ginkgo/v2/ginkgo@$GINKGO_VERSION
+  script:
+    - go vet ./...
+
+mr-test:
+  stage: build+test
+  only:
+    - main
+    - merge_requests
+  image: golang:1.19
+  services:
+    - redis:7.0.5
+  before_script:
+    - go install github.com/onsi/ginkgo/v2/ginkgo@$GINKGO_VERSION
+    - go install github.com/boumenot/gocover-cobertura@v1.2.0
+  script:
+    - make
+    - ginkgo -r --randomize-all --randomize-suites -cover --coverprofile=coverage.txt
+    - $GOPATH/bin/gocover-cobertura < coverage.txt > coverage.xml
+  artifacts:
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
+  coverage: '/composite coverage: \d+\.\d+/'
