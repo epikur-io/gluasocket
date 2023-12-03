@@ -1,5 +1,9 @@
 # Change Log
 
+## [Unreleased]
+### Added
+- [#5](https://gitlab.com/megalithic-llc/gluasocket/-/issues/5) Provide an 'outdated' make target
+
 ## [0.3.0] - 2023-06-24
 ### Changed
 - [#4](https://gitlab.com/megalithic-llc/gluasocket/-/issues/4) Use go:embed to import Lua scripts
