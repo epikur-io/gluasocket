@@ -10,8 +10,6 @@
 local base = _G
 local ltn12 = require("ltn12")
 local mime = require("mime.core")
-local io = require("io")
-local string = require("string")
 local _M = mime
 
 -- encode, decode and wrap algorithm tables
@@ -40,8 +38,8 @@ encodet['base64'] = function()
 end
 
 encodet['quoted-printable'] = function(mode)
-    local temp = (mode == "binary") and "=0D=0A" or "\r\n"
-    return ltn12.filter.cycle(_M.qp, "", temp)
+    return ltn12.filter.cycle(_M.qp, "",
+            (mode == "binary") and "=0D=0A" or "\r\n")
 end
 
 -- define the decoding filters
@@ -51,13 +49,6 @@ end
 
 decodet['quoted-printable'] = function()
     return ltn12.filter.cycle(_M.unqp, "")
-end
-
-local function format(chunk)
-    if chunk then
-        if chunk == "" then return "''"
-        else return string.len(chunk) end
-    else return "nil" end
 end
 
 -- define the line-wrap filters
