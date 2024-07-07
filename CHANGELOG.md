@@ -1,5 +1,9 @@
 # Change Log
 
+## [Unreleased]
+### Changed
+- [#11](https://gitlab.com/megalithic-llc/gluasocket/-/issues/11) Upgrade Go from 1.21 → 1.22
+
 ## [0.3.1] - 2023-12-03
 ### Added
 - [#7](https://gitlab.com/megalithic-llc/gluasocket/-/issues/7) Enable staticcheck linter, and address 16 failing lint checks
