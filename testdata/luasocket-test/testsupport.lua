@@ -19,7 +19,7 @@ end
 function compare(input, output)
     local original = readfile(input)
     local recovered = readfile(output)
-    if original ~= recovered then fail("comparison failed")
+    if original ~= recovered then fail("comparison failed: " .. tostring(#original) .. " != " .. tostring(#recovered))
     else print("ok") end
 end
 
