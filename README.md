@@ -3,6 +3,8 @@
 A native Go implementation of [LuaSocket](https://github.com/diegonehab/luasocket) for the
 [GopherLua](https://github.com/yuin/gopher-lua) VM.
 
+**Note: This is a fork of [gluasocket](https://gitlab.com/megalithic-llc/gluasocket) that works with the more up-to-date version of [gopher-lua](https://github.com/epikur-io/gopher-lua).**
+
 ## Using
 
 ### Loading Modules
