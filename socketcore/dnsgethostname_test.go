@@ -1,11 +1,12 @@
 package socketcore_test
 
 import (
-	"github.com/stretchr/testify/assert"
-	"github.com/yuin/gopher-lua"
-	"gitlab.com/megalithic-llc/gluasocket/socketcore"
 	"os"
 	"testing"
+
+	"github.com/epikur-io/gluasocket/socketcore"
+	lua "github.com/epikur-io/gopher-lua"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDnsGetHostName(t *testing.T) {

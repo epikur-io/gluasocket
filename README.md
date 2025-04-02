@@ -9,7 +9,7 @@ A native Go implementation of [LuaSocket](https://github.com/diegonehab/luasocke
 
 ```go
 import (
-	"gitlab.com/megalithic-llc/gluasocket"
+	"github.com/epikur-io/gluasocket"
 )
 
 // Bring up a GopherLua VM

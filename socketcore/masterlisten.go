@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/yuin/gopher-lua"
+	lua "github.com/epikur-io/gopher-lua"
 )
 
 func masterListenMethod(L *lua.LState) int {

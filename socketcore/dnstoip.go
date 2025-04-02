@@ -4,7 +4,7 @@ import (
 	"net"
 	"strings"
 
-	"github.com/yuin/gopher-lua"
+	lua "github.com/epikur-io/gopher-lua"
 )
 
 func dnsToIp(L *lua.LState) int {

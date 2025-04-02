@@ -1,8 +1,6 @@
 package socketcore
 
-import (
-	"github.com/yuin/gopher-lua"
-)
+import lua "github.com/epikur-io/gopher-lua"
 
 func clientGetSockNameMethod(L *lua.LState) int {
 	L.RaiseError("client:getsockname() not implemented yet")

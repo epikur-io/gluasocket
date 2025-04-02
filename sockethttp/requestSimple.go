@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/yuin/gopher-lua"
+	lua "github.com/epikur-io/gopher-lua"
 )
 
 func requestSimpleFn(L *lua.LState) int {

@@ -3,7 +3,7 @@ package socketcore
 import (
 	"time"
 
-	"github.com/yuin/gopher-lua"
+	lua "github.com/epikur-io/gopher-lua"
 )
 
 func clientSetTimeoutMethod(L *lua.LState) int {

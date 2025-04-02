@@ -2,15 +2,18 @@ package mimecore
 
 import (
 	"bytes"
-	"github.com/yuin/gopher-lua"
+
+	lua "github.com/epikur-io/gopher-lua"
 )
 
-/*-------------------------------------------------------------------------*\
+/*
+-------------------------------------------------------------------------*\
 * Incrementally removes the Base64 transfer content encoding from a string
 * A, B = b64(C, D)
 * A is the encoded version of the largest prefix of C .. D that is
 * divisible by 4. B has the remaining bytes of C .. D, *without* encoding.
-\*-------------------------------------------------------------------------*/
+\*-------------------------------------------------------------------------
+*/
 func unb64Fn(L *lua.LState) int {
 	/* end-of-input blackhole */
 	if L.Get(1).Type() == lua.LTNil {
@@ -47,11 +50,13 @@ func unb64Fn(L *lua.LState) int {
 	return 2
 }
 
-/*-------------------------------------------------------------------------*\
+/*
+-------------------------------------------------------------------------*\
 * Acumulates bytes in input buffer until 4 bytes are available.
 * Translate the 4 bytes from Base64 form and append to buffer.
 * Returns new number of bytes in buffer.
-\*-------------------------------------------------------------------------*/
+\*-------------------------------------------------------------------------
+*/
 func b64decode(c rune, input *bytes.Buffer, buffer *bytes.Buffer) {
 	/* ignore invalid characters */
 	if b64unbase[c] > 64 {

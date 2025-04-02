@@ -2,16 +2,19 @@ package mimecore
 
 import (
 	"bytes"
-	"github.com/yuin/gopher-lua"
+
+	lua "github.com/epikur-io/gopher-lua"
 )
 
-/*-------------------------------------------------------------------------*\
+/*
+-------------------------------------------------------------------------*\
 * Converts a string to uniform EOL convention.
 * A, n = eol(o, B, marker)
 * A is the converted version of the largest prefix of B that can be
 * converted unambiguously. 'o' is the context returned by the previous
 * call. 'n' is the new context.
-\*-------------------------------------------------------------------------*/
+\*-------------------------------------------------------------------------
+*/
 func eolFn(L *lua.LState) int {
 	ctx := rune(L.OptInt(1, 1))
 
@@ -35,7 +38,8 @@ func eolFn(L *lua.LState) int {
 	return 2
 }
 
-/*-------------------------------------------------------------------------*\
+/*
+-------------------------------------------------------------------------*\
 * Here is what we do: \n, and \r are considered candidates for line
 * break. We issue *one* new line marker if any of them is seen alone, or
 * followed by a different one. That is, \n\n and \r\r will issue two
@@ -45,7 +49,8 @@ func eolFn(L *lua.LState) int {
 *
 * c is the current character being processed
 * last is the previous character
-\*-------------------------------------------------------------------------*/
+\*-------------------------------------------------------------------------
+*/
 func eolprocess(c rune, last rune, marker string, buffer *bytes.Buffer) rune {
 	if c == '\r' || c == '\n' {
 		if last == '\r' || last == '\n' {

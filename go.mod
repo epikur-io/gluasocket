@@ -1,10 +1,10 @@
-module gitlab.com/megalithic-llc/gluasocket
+module github.com/epikur-io/gluasocket
 
 go 1.22
 
 require (
-	github.com/stretchr/testify v1.8.4
-	github.com/yuin/gopher-lua v1.1.1
+	github.com/epikur-io/gopher-lua v1.2.1
+	github.com/stretchr/testify v1.10.0
 )
 
 require (

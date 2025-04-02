@@ -1,11 +1,12 @@
 package socketcore_test
 
 import (
-	"github.com/stretchr/testify/assert"
-	"github.com/yuin/gopher-lua"
-	"gitlab.com/megalithic-llc/gluasocket/socketcore"
 	"testing"
 	"time"
+
+	"github.com/epikur-io/gluasocket/socketcore"
+	lua "github.com/epikur-io/gopher-lua"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestGettime(t *testing.T) {

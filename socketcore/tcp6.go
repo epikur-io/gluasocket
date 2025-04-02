@@ -1,8 +1,6 @@
 package socketcore
 
-import (
-	"github.com/yuin/gopher-lua"
-)
+import lua "github.com/epikur-io/gopher-lua"
 
 func tcp6Fn(L *lua.LState) int {
 	master := &Master{Family: AF_INET6}

@@ -1,10 +1,11 @@
 package mimecore_test
 
 import (
-	"github.com/stretchr/testify/assert"
-	"github.com/yuin/gopher-lua"
-	"gitlab.com/megalithic-llc/gluasocket/mimecore"
 	"testing"
+
+	"github.com/epikur-io/gluasocket/mimecore"
+	lua "github.com/epikur-io/gopher-lua"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestEolDos(t *testing.T) {

@@ -2,16 +2,19 @@ package mimecore
 
 import (
 	"bytes"
-	"github.com/yuin/gopher-lua"
+
+	lua "github.com/epikur-io/gopher-lua"
 )
 
-/*-------------------------------------------------------------------------*\
+/*
+-------------------------------------------------------------------------*\
 * Incrementally decodes a string in quoted-printable
 * A, B = qp(C, D)
 * A is the decoded version of the largest prefix of C .. D that
 * can be decoded without doubts.
 * B has the remaining bytes of C .. D, *without* decoding.
-\*-------------------------------------------------------------------------*/
+\*-------------------------------------------------------------------------
+*/
 func unqpFn(l *lua.LState) int {
 	var atom bytes.Buffer
 
@@ -51,10 +54,12 @@ func unqpFn(l *lua.LState) int {
 	return 2
 }
 
-/*-------------------------------------------------------------------------*\
+/*
+-------------------------------------------------------------------------*\
 * Accumulate characters until we are sure about how to deal with them.
 * Once we are sure, output the to the buffer, in the correct form.
-\*-------------------------------------------------------------------------*/
+\*-------------------------------------------------------------------------
+*/
 func qpdecode(c rune, input *bytes.Buffer, buffer *bytes.Buffer) {
 	input.WriteRune(c)
 

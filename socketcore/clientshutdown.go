@@ -1,8 +1,6 @@
 package socketcore
 
-import (
-	"github.com/yuin/gopher-lua"
-)
+import lua "github.com/epikur-io/gopher-lua"
 
 func clientShutdownMethod(L *lua.LState) int {
 	L.RaiseError("client:shutdown() not implemented yet")

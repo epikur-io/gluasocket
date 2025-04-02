@@ -1,12 +1,12 @@
 package gluasocket
 
 import (
-	"github.com/yuin/gopher-lua"
-	luaScripts "gitlab.com/megalithic-llc/gluasocket/lua"
-	"gitlab.com/megalithic-llc/gluasocket/mimecore"
-	"gitlab.com/megalithic-llc/gluasocket/socketcore"
-	"gitlab.com/megalithic-llc/gluasocket/socketexcept"
-	"gitlab.com/megalithic-llc/gluasocket/sockethttp"
+	luaScripts "github.com/epikur-io/gluasocket/lua"
+	"github.com/epikur-io/gluasocket/mimecore"
+	"github.com/epikur-io/gluasocket/socketcore"
+	"github.com/epikur-io/gluasocket/socketexcept"
+	"github.com/epikur-io/gluasocket/sockethttp"
+	lua "github.com/epikur-io/gopher-lua"
 )
 
 func Preload(L *lua.LState) {

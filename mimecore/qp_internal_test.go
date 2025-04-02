@@ -2,9 +2,10 @@ package mimecore
 
 import (
 	"bytes"
-	"github.com/stretchr/testify/assert"
-	"github.com/yuin/gopher-lua"
 	"testing"
+
+	lua "github.com/epikur-io/gopher-lua"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestQpQuote0(t *testing.T) {
@@ -21,12 +22,12 @@ func TestQpQuote255(t *testing.T) {
 	assert.Equal("=FF", buffer.String())
 }
 
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // mime=require 'mime'
 // A,B = mime.qp('Möpsi')
 // assert.equal('M=C3=B6psi', A)
 // assert.equal(nil, B)
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 func TestQpWithMoepsi(t *testing.T) {
 	assert := assert.New(t)
 	qpsetup()
@@ -44,12 +45,12 @@ func TestQpWithMoepsi(t *testing.T) {
 	assert.Equal(lua.LTNil, B.Type())
 }
 
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // mime=require 'mime'
 // A,B = mime.qp('Möpsi ', 'Pepsi')
 // assert.equal('M=C3=B6psi Pepsi", A)
-// assert.equal('', B)
-//-----------------------------------------------------------------------------
+// assert.equal(”, B)
+// -----------------------------------------------------------------------------
 func TestQpWithMoepsiPepsi(t *testing.T) {
 	assert := assert.New(t)
 	qpsetup()
@@ -68,12 +69,12 @@ func TestQpWithMoepsiPepsi(t *testing.T) {
 	assert.Equal("", B)
 }
 
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // mime=require 'mime'
 // A,B = mime.qp('abc\r\ndef', nil, '_')
 // assert.equal('abc_def', A)
 // assert.equal(niul, B)
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 func TestQpMarker(t *testing.T) {
 	assert := assert.New(t)
 	qpsetup()

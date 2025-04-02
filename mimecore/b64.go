@@ -2,7 +2,8 @@ package mimecore
 
 import (
 	"bytes"
-	"github.com/yuin/gopher-lua"
+
+	lua "github.com/epikur-io/gopher-lua"
 )
 
 var (

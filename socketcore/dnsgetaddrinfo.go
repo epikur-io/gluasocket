@@ -3,7 +3,7 @@ package socketcore
 import (
 	"net"
 
-	"github.com/yuin/gopher-lua"
+	lua "github.com/epikur-io/gopher-lua"
 )
 
 func dnsGetAddrInfo(L *lua.LState) int {

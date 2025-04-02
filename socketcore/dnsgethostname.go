@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/yuin/gopher-lua"
+	lua "github.com/epikur-io/gopher-lua"
 )
 
 func dnsGetHostName(L *lua.LState) int {

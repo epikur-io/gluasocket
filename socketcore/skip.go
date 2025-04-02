@@ -1,8 +1,6 @@
 package socketcore
 
-import (
-	"github.com/yuin/gopher-lua"
-)
+import lua "github.com/epikur-io/gopher-lua"
 
 func skipFn(L *lua.LState) int {
 	d := L.ToInt(1)

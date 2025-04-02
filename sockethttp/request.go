@@ -1,8 +1,6 @@
 package sockethttp
 
-import (
-	"github.com/yuin/gopher-lua"
-)
+import lua "github.com/epikur-io/gopher-lua"
 
 func requestFn(L *lua.LState) int {
 	if L.Get(1).Type() == lua.LTString {

@@ -2,12 +2,13 @@ package sockethttp_test
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/assert"
-	"github.com/yuin/gopher-lua"
-	"gitlab.com/megalithic-llc/gluasocket/sockethttp"
 	"net"
 	"net/http"
 	"testing"
+
+	"github.com/epikur-io/gluasocket/sockethttp"
+	lua "github.com/epikur-io/gopher-lua"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestWebHdfsUrlScheme(t *testing.T) {

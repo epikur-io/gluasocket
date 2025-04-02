@@ -1,10 +1,11 @@
 package socketcore_test
 
 import (
-	"github.com/stretchr/testify/assert"
-	"github.com/yuin/gopher-lua"
-	"gitlab.com/megalithic-llc/gluasocket"
 	"testing"
+
+	"github.com/epikur-io/gluasocket"
+	lua "github.com/epikur-io/gopher-lua"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDnsToIpLocalhost(t *testing.T) {

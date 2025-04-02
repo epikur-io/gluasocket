@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/yuin/gopher-lua"
+	lua "github.com/epikur-io/gopher-lua"
 )
 
 func masterConnectMethod(L *lua.LState) int {

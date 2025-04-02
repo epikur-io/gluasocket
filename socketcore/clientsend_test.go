@@ -2,13 +2,14 @@ package socketcore_test
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/assert"
-	"github.com/yuin/gopher-lua"
-	"gitlab.com/megalithic-llc/gluasocket"
 	"io"
 	"net"
 	"testing"
 	"time"
+
+	"github.com/epikur-io/gluasocket"
+	lua "github.com/epikur-io/gopher-lua"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestClientSend(t *testing.T) {
